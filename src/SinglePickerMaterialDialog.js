@@ -125,8 +125,7 @@ const styles = StyleSheet.create({
     height: 56,
     flex: 1,
     flexDirection: 'row',
-    justifyContent: 'flex-start',
-    alignItems: 'center',
+    justifyContent: 'space-between',
   },
   iconContainer:
   {
@@ -168,6 +167,5 @@ SinglePickerMaterialDialog.defaultProps = {
   colorAccent: colors.androidColorAccent,
   cancelLabel: undefined,
   okLabel: undefined,
-  scrolled: false,
-  showOptionsOnRight: false
+  scrolled: false
 };
