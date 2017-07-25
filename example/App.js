@@ -300,6 +300,10 @@ export default class MaterialDialogExample extends Component {
 
         <SinglePickerMaterialDialog
           showOptionsOnRight={true}
+          customStyle={{ backgroundColor: 'grey', marginBottom: 10 }}
+          titleTextStyle={{ fontSize: 10 }}
+          listItemText={{ fontSize: 10 }}
+          scrolled={false}
           title={'Pick one element!'}
           items={SHORT_LIST.map((row, index) => ({ value: index, label: row }))}
           visible={this.state.singlePickerVisible}
@@ -311,6 +315,7 @@ export default class MaterialDialogExample extends Component {
           }} />
 
         <SinglePickerMaterialDialog
+          showOptionsOnRight={true}
           title={'Pick one element!'}
           scrolled
           items={LONG_LIST.map((row, index) => ({ value: index, label: row }))}

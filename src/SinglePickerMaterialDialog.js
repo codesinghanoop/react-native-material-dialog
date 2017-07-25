@@ -83,7 +83,7 @@ export default class SinglePickerMaterialDialog extends Component {
             size={24} />
         </View> }
         <Text
-          style={styles.rowText}>{row.label}</Text>
+          style={[styles.rowText,this.props.listItemText]}>{row.label}</Text>
         {this.props.showOptionsOnRight?<View style={styles.iconContainer}>
           <Icon
             name={row.selected
@@ -106,6 +106,8 @@ export default class SinglePickerMaterialDialog extends Component {
         visible={this.props.visible}
         okLabel={this.props.okLabel}
         scrolled={this.props.scrolled}
+        customStyle= {this.props.customStyle}
+        titleTextStyle= {this.props.titleTextStyle}
         onOk={() => this.props.onOk({
           selectedItem: this
           .state
@@ -153,7 +155,7 @@ const styles = StyleSheet.create({
   {
     height: 1,
     backgroundColor: 'grey',
-    marginBottom: 5
+    marginBottom: 8
   }
 });
 
@@ -169,7 +171,8 @@ SinglePickerMaterialDialog.propTypes = {
   cancelLabel: PropTypes.string,
   okLabel: PropTypes.string,
   scrolled: PropTypes.bool,
-  showOptionsOnRight: PropTypes.bool
+  showOptionsOnRight: PropTypes.bool,
+  listItemText: PropTypes.object
 };
 
 SinglePickerMaterialDialog.defaultProps = {
@@ -178,5 +181,6 @@ SinglePickerMaterialDialog.defaultProps = {
   colorAccent: colors.androidColorAccent,
   cancelLabel: undefined,
   okLabel: undefined,
-  scrolled: false
+  scrolled: false,
+  listItemText: {}
 };
