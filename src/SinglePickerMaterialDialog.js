@@ -72,7 +72,6 @@ export default class SinglePickerMaterialDialog extends Component {
 
   renderRow = (row, sectionID, rowID) => (
     <TouchableOpacity key={row.value} onPress={() => this.onRowPress(rowID)}>
-    <View style= {styles.rowIncludingHr}>
       <View
         style={styles.rowContainer}>
         {this.props.showOptionsOnRight?null:<View style={styles.iconContainer}>
@@ -94,8 +93,6 @@ export default class SinglePickerMaterialDialog extends Component {
             size={24} />
         </View>: null }  
       </View>
-      <View style={styles.hr}/>
-    </View>
 
     </TouchableOpacity>
     );
@@ -120,7 +117,9 @@ export default class SinglePickerMaterialDialog extends Component {
           .props
           .onCancel();
         }}>
-        <ListView dataSource={this.state.dataSource} renderRow={this.renderRow} />
+        <ListView dataSource={this.state.dataSource} renderRow={this.renderRow} renderSeparator={(sectionID, rowID) =>
+        <View key={`${sectionID}-${rowID}`} style={styles.separator} />
+      } />
       </MaterialDialog>
     );
   }
@@ -128,7 +127,6 @@ export default class SinglePickerMaterialDialog extends Component {
 
 const styles = StyleSheet.create({
   rowContainer: {
-    height: 56,
     flex: 1,
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -151,14 +149,11 @@ const styles = StyleSheet.create({
     fontSize: 16,
     marginLeft: 10
   },
-  hr: 
+  separator: 
   {
-    height: 0.3, 
-    width: deviceWidth, 
-    backgroundColor: 'black',
-  },
-  rowIncludingHr: {
-    flexDirection: 'columm'
+    height: 1,
+    backgroundColor: 'grey',
+    marginBottom: 5
   }
 });
 
