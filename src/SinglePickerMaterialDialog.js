@@ -72,7 +72,7 @@ export default class SinglePickerMaterialDialog extends Component {
 
   renderRow = (row, sectionID, rowID) => (
     <TouchableOpacity key={row.value} onPress={() => this.onRowPress(rowID)}>
-    <View>
+    <View style= {styles.rowIncludingHr}>
       <View
         style={styles.rowContainer}>
         {this.props.showOptionsOnRight?null:<View style={styles.iconContainer}>
@@ -156,6 +156,9 @@ const styles = StyleSheet.create({
     height: 0.3, 
     width: deviceWidth, 
     backgroundColor: 'black',
+  },
+  rowIncludingHr: {
+    flexDirection: 'columm'
   }
 });
 
