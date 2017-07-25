@@ -72,24 +72,24 @@ export default class SinglePickerMaterialDialog extends Component {
     <TouchableOpacity key={row.value} onPress={() => this.onRowPress(rowID)}>
       <View
         style={styles.rowContainer}>
-        {this.props.showOptionsOnRight?null:<View style={styles.iconContainer}>
+        {this.props.showOptionsOnRight?null:
           <Icon
             name={row.selected
             ? 'radio-button-checked'
             : 'radio-button-unchecked'}
             color={this.props.colorAccent}
             size={24} />
-        </View> }
+         }
         <Text
           style={styles.rowText}>{row.label}</Text>
-        {this.props.showOptionsOnRight?<View style={styles.iconContainer}>
+        {this.props.showOptionsOnRight?
           <Icon
             name={row.selected
             ? 'radio-button-checked'
             : 'radio-button-unchecked'}
             color={this.props.colorAccent}
             size={24} />
-        </View>: null }  
+        : null }  
       </View>
     </TouchableOpacity>
     );
@@ -125,11 +125,7 @@ const styles = StyleSheet.create({
     height: 56,
     flex: 1,
     flexDirection: 'row',
-    justifyContent: 'space-between',
-  },
-  iconContainer:
-  {
-    marginRight: 16,
+    justifyContent: 'space-around',
   },
   rowText:
   {
