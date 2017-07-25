@@ -72,16 +72,24 @@ export default class SinglePickerMaterialDialog extends Component {
     <TouchableOpacity key={row.value} onPress={() => this.onRowPress(rowID)}>
       <View
         style={styles.rowContainer}>
-        <View style={styles.iconContainer}>
+        {this.props.showOptionsOnRight?null:<View style={styles.iconContainer}>
           <Icon
             name={row.selected
             ? 'radio-button-checked'
             : 'radio-button-unchecked'}
             color={this.props.colorAccent}
             size={24} />
-        </View>
+        </View> }
         <Text
           style={styles.rowText}>{row.label}</Text>
+        {this.props.showOptionsOnRight?<View style={styles.iconContainer}>
+          <Icon
+            name={row.selected
+            ? 'radio-button-checked'
+            : 'radio-button-unchecked'}
+            color={this.props.colorAccent}
+            size={24} />
+        </View>: null }  
       </View>
     </TouchableOpacity>
     );
@@ -151,6 +159,7 @@ SinglePickerMaterialDialog.propTypes = {
   cancelLabel: PropTypes.string,
   okLabel: PropTypes.string,
   scrolled: PropTypes.bool,
+  showOptionsOnRight: PropTypes.bool
 };
 
 SinglePickerMaterialDialog.defaultProps = {
@@ -160,4 +169,5 @@ SinglePickerMaterialDialog.defaultProps = {
   cancelLabel: undefined,
   okLabel: undefined,
   scrolled: false,
+  showOptionsOnRight: false
 };

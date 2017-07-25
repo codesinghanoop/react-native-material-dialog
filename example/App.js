@@ -299,6 +299,7 @@ export default class MaterialDialogExample extends Component {
           }} />
 
         <SinglePickerMaterialDialog
+          showOptionsOnRight={true}
           title={'Pick one element!'}
           items={SHORT_LIST.map((row, index) => ({ value: index, label: row }))}
           visible={this.state.singlePickerVisible}
