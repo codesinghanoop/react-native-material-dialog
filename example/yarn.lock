@@ -3429,8 +3429,9 @@ react-devtools-core@^2.0.8:
     shell-quote "^1.6.1"
     ws "^2.0.3"
 
-"react-native-material-dialog@file:../":
-  version "0.4.3"
+react-native-material-dialog@codesinghanoop/react-native-material-dialog.git:
+  version "0.4.4"
+  resolved "https://codeload.github.com/codesinghanoop/react-native-material-dialog/tar.gz/f296abafc30e8e7ed4f86e29bdd8666d264911da"
   dependencies:
     react-native-vector-icons "^4.0.0"
 

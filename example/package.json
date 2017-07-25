@@ -9,7 +9,7 @@
   "dependencies": {
     "react": "16.0.0-alpha.6",
     "react-native": "0.44.0",
-    "react-native-material-dialog": "file:../",
+    "react-native-material-dialog": "codesinghanoop/react-native-material-dialog.git",
     "react-native-vector-icons": "^4.0.0"
   },
   "devDependencies": {
