@@ -156,7 +156,6 @@ const styles = StyleSheet.create({
     height: 0.3, 
     width: deviceWidth, 
     backgroundColor: 'black',
-    marginTop: 5
   }
 });
 
