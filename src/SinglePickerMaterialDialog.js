@@ -1,9 +1,11 @@
 import React, { Component, PropTypes } from 'react';
-import { StyleSheet, Text, TouchableOpacity, View, ListView, Platform } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, View, ListView, Platform, Dimensions } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import MaterialDialog from './MaterialDialog';
 
 import colors from './colors';
+
+let deviceWidth = Dimensions.get('window').width;
 
 export default class SinglePickerMaterialDialog extends Component {
 
@@ -70,27 +72,31 @@ export default class SinglePickerMaterialDialog extends Component {
 
   renderRow = (row, sectionID, rowID) => (
     <TouchableOpacity key={row.value} onPress={() => this.onRowPress(rowID)}>
+    <View>
       <View
         style={styles.rowContainer}>
-        {this.props.showOptionsOnRight?null:
+        {this.props.showOptionsOnRight?null:<View style={styles.iconContainer}>
           <Icon
             name={row.selected
             ? 'radio-button-checked'
             : 'radio-button-unchecked'}
             color={this.props.colorAccent}
             size={24} />
-         }
+        </View> }
         <Text
           style={styles.rowText}>{row.label}</Text>
-        {this.props.showOptionsOnRight?
+        {this.props.showOptionsOnRight?<View style={styles.iconContainer}>
           <Icon
             name={row.selected
             ? 'radio-button-checked'
             : 'radio-button-unchecked'}
             color={this.props.colorAccent}
             size={24} />
-        : null }  
+        </View>: null }  
       </View>
+      <View style={styles.hr}/>
+    </View>
+
     </TouchableOpacity>
     );
 
@@ -125,7 +131,11 @@ const styles = StyleSheet.create({
     height: 56,
     flex: 1,
     flexDirection: 'row',
-    justifyContent: 'space-around',
+    justifyContent: 'space-between',
+  },
+  iconContainer:
+  {
+    marginRight: 10,
   },
   rowText:
   {
@@ -139,7 +149,15 @@ const styles = StyleSheet.create({
     }),
     color: colors.androidPrimaryTextColor,
     fontSize: 16,
+    marginLeft: 10
   },
+  hr: 
+  {
+    height: 0.3, 
+    width: deviceWidth, 
+    backgroundColor: 'black',
+    marginTop: 5
+  }
 });
 
 SinglePickerMaterialDialog.propTypes = {
